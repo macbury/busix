@@ -54,7 +54,7 @@ module Overpass
 QL
     step :fetch_elements
     step :save
-    step :try_fix_current_stops
+    #step :try_fix_current_stops
 
     private
 
