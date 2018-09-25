@@ -23,7 +23,3 @@ end
 Sidekiq.configure_client do |config|
   config.redis = { url: REDIS_URL }
 end
-
-Sidekiq::Web.use Rack::Auth::Basic do |username, password|
-  username == 'admin' && password == ENV.fetch['SIDEKIQ_BASIC_AUTH_PASSWORD']
-end
