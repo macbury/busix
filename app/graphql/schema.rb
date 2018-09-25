@@ -1,0 +1,12 @@
+class Schema < GraphQL::Schema
+  query Types::Query
+  use BatchLoader::GraphQL
+
+  middleware(GraphQL::Schema::TimeoutMiddleware.new(max_seconds: 10) do |err, query|
+    Rails.logger.info("GraphQL Timeout: #{query.query_string}")
+  end)
+
+  max_complexity 200
+  log_query_complexity = GraphQL::Analysis::QueryComplexity.new { |query, complexity| Rails.logger.info("[GraphQL Query Complexity] #{complexity}")}
+  query_analyzer(log_query_complexity)
+end

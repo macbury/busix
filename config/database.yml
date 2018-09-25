@@ -1,0 +1,22 @@
+
+default: &default
+  adapter: postgis
+  encoding: unicode
+  url: <%= ENV['DATABASE_URL'] %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 25 } %>
+
+development:
+  <<: *default
+  database: busix_development
+  min_messages: debug1
+
+test:
+  <<: *default
+  database: busix_test
+
+production:
+  <<: *default
+
+staging:
+  <<: *default  
+  database: busix_staging

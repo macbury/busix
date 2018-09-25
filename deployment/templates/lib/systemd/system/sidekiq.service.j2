@@ -1,0 +1,20 @@
+[Unit]
+Description=Sidekiq service
+After=syslog.target network.target
+
+[Service]
+Type=simple
+User={{ ansible_user }}
+WorkingDirectory=/{{ project }}/current
+ExecStart=/bin/bash -l -c "/{{ project }}/current/bin/sidekiq"
+ExecReload=/bin/kill -TSTP $MAINPID
+ExecStop=/bin/kill -TERM $MAINPID
+
+RestartSec=5
+Restart=on-failure
+
+SyslogIdentifier=sidekiq
+
+[Install]
+WantedBy=multi-user.target
+

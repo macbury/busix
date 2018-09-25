@@ -1,0 +1,14 @@
+[Unit]
+Description=Puma HTTP Server
+After=network.target
+
+[Service]
+Type=simple
+User={{ ansible_user }}
+WorkingDirectory=/{{ project }}/current
+ExecStart=/bin/bash -l -c "/{{ project }}/current/bin/puma -C /{{ project }}/shared/puma.rb"
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+

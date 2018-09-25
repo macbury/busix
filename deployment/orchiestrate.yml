@@ -1,0 +1,43 @@
+- hosts: localhost
+  vars_prompt:
+    - name: stage
+      private: no
+      default: 'staging'
+  tasks:
+    - name: include vars of vars.yml
+      include_vars:
+        file: vars.yml
+
+    - name: 'Checking ssh key'
+      digital_ocean:
+        state: present
+        command: ssh
+        name: "{{ ssh_key_name }}"
+        ssh_pub_key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+        api_token: "{{ api_token }}"
+      register: my_ssh_key
+
+    - name: 'Creating droplet'
+      digital_ocean:
+        state: present
+        command: droplet
+        name: "{{ project }}.{{stage}}"
+        api_token: "{{ api_token }}"
+        ssh_key_ids: "{{ my_ssh_key.ssh_key.id }}"
+        size_id: 1GB
+        region_id: ams3
+        image_id: ubuntu-18-04-x64
+        wait_timeout: 500
+      register: my_droplet
+
+    - name: tag a resource; creating the tag if it does not exist
+      digital_ocean_tag:
+        resource_id: "{{ my_droplet.droplet.id }}"
+        state: present
+        api_token: "{{ api_token }}"
+        name: "{{ project }}-{{ stage }}"
+    - debug:
+        msg: "ID is {{ my_droplet.droplet.id }}"
+
+    - debug:
+        msg: "IP is {{ my_droplet.droplet.ip_address }}"

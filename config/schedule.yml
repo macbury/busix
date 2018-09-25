@@ -1,0 +1,9 @@
+start_cracow_scraping:
+  cron: "0 * * * *"
+  class: "Crawler::SyncVersionsJob"
+  queue: default
+
+sync_locations:
+  cron: "0 12 * * *"
+  class: "SyncLocationJob"
+  queue: default

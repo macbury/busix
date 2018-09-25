@@ -1,0 +1,45 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://nominatim.openstreetmap.org/search?addressdetails=1&format=json&polygon=0&q=Osiedle%20Na%20Wzg%C3%B3rzach
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 02 Aug 2018 07:12:16 GMT
+      Server:
+      - Apache/2.4.18 (Ubuntu)
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - OPTIONS,GET
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Expect-Ct:
+      - max-age=0, report-uri="https://openstreetmap.report-uri.com/r/d/ct/reportOnly"
+      Connection:
+      - close
+      Transfer-Encoding:
+      - chunked
+      Content-Type:
+      - application/json; charset=UTF-8
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        W3sicGxhY2VfaWQiOiIxNzg4ODM0NjgiLCJsaWNlbmNlIjoiRGF0YSDCqSBPcGVuU3RyZWV0TWFwIGNvbnRyaWJ1dG9ycywgT0RiTCAxLjAuIGh0dHBzOlwvXC9vc20ub3JnXC9jb3B5cmlnaHQiLCJvc21fdHlwZSI6InJlbGF0aW9uIiwib3NtX2lkIjoiMzI1NDY4NCIsImJvdW5kaW5nYm94IjpbIjUwLjA5MTE3OTYiLCI1MC4wOTk3NjMyIiwiMjAuMDU1MjI4MSIsIjIwLjA2NTgxMjUiXSwibGF0IjoiNTAuMDk1NTU2NzUiLCJsb24iOiIyMC4wNjEzMzYyMjA4Mjc4IiwiZGlzcGxheV9uYW1lIjoiT3NpZWRsZSBOYSBXemfDs3J6YWNoLCBXemfDs3J6YSBLcnplc8WCYXdpY2tpZSwgS3Jha8OzdywgbWHFgm9wb2xza2llLCBSUCIsImNsYXNzIjoiYm91bmRhcnkiLCJ0eXBlIjoiYWRtaW5pc3RyYXRpdmUiLCJpbXBvcnRhbmNlIjowLjUsImljb24iOiJodHRwczpcL1wvbm9taW5hdGltLm9wZW5zdHJlZXRtYXAub3JnXC9pbWFnZXNcL21hcGljb25zXC9wb2lfYm91bmRhcnlfYWRtaW5pc3RyYXRpdmUucC4yMC5wbmciLCJhZGRyZXNzIjp7Im5laWdoYm91cmhvb2QiOiJPc2llZGxlIE5hIFd6Z8OzcnphY2giLCJzdWJ1cmIiOiJXemfDs3J6YSBLcnplc8WCYXdpY2tpZSIsImNpdHlfZGlzdHJpY3QiOiJXemfDs3J6YSBLcnplc8WCYXdpY2tpZSIsImNpdHkiOiJLcmFrw7N3IiwiY291bnR5IjoiS3Jha8OzdyIsInN0YXRlIjoibWHFgm9wb2xza2llIiwiY291bnRyeSI6IlJQIiwiY291bnRyeV9jb2RlIjoicGwifX0seyJwbGFjZV9pZCI6Ijg1NDAzMTc0IiwibGljZW5jZSI6IkRhdGEgwqkgT3BlblN0cmVldE1hcCBjb250cmlidXRvcnMsIE9EYkwgMS4wLiBodHRwczpcL1wvb3NtLm9yZ1wvY29weXJpZ2h0Iiwib3NtX3R5cGUiOiJ3YXkiLCJvc21faWQiOiI1NDk2NTgzMiIsImJvdW5kaW5nYm94IjpbIjUwLjA5MjU0NiIsIjUwLjA5NzUyOTYiLCIyMC4wNTk1ODk5IiwiMjAuMDY1NTgyOSJdLCJsYXQiOiI1MC4wOTQ3OTc5NSIsImxvbiI6IjIwLjA2MjE4MTQ4NjI0NzkiLCJkaXNwbGF5X25hbWUiOiJPc2llZGxlIE5hIFd6Z8OzcnphY2gsIFd6Z8OzcnphIEtyemVzxYJhd2lja2llLCBLcmFrw7N3LCBtYcWCb3BvbHNraWUsIFJQIiwiY2xhc3MiOiJsYW5kdXNlIiwidHlwZSI6InJlc2lkZW50aWFsIiwiaW1wb3J0YW5jZSI6MC41LCJhZGRyZXNzIjp7InJlc2lkZW50aWFsIjoiT3NpZWRsZSBOYSBXemfDs3J6YWNoIiwic3VidXJiIjoiV3pnw7NyemEgS3J6ZXPFgmF3aWNraWUiLCJjaXR5X2Rpc3RyaWN0IjoiV3pnw7NyemEgS3J6ZXPFgmF3aWNraWUiLCJjaXR5IjoiS3Jha8OzdyIsImNvdW50eSI6IktyYWvDs3ciLCJzdGF0ZSI6Im1hxYJvcG9sc2tpZSIsImNvdW50cnkiOiJSUCIsImNvdW50cnlfY29kZSI6InBsIn19LHsicGxhY2VfaWQiOiIxMzYxMzE5MTIiLCJsaWNlbmNlIjoiRGF0YSDCqSBPcGVuU3RyZWV0TWFwIGNvbnRyaWJ1dG9ycywgT0RiTCAxLjAuIGh0dHBzOlwvXC9vc20ub3JnXC9jb3B5cmlnaHQiLCJvc21fdHlwZSI6IndheSIsIm9zbV9pZCI6IjI3NjkyNjg5MiIsImJvdW5kaW5nYm94IjpbIjUwLjA5NTMwNTUiLCI1MC4wOTU3OTkiLCIyMC4wNjI1MzE1IiwiMjAuMDYzNzkzMSJdLCJsYXQiOiI1MC4wOTUzMDU1IiwibG9uIjoiMjAuMDYzNzkzMSIsImRpc3BsYXlfbmFtZSI6Ik9zaWVkbGUgTmEgV3pnw7NyemFjaCwgV3pnw7NyemEgS3J6ZXPFgmF3aWNraWUsIEtyYWvDs3csIG1hxYJvcG9sc2tpZSwgMzEtNzI2LCBSUCIsImNsYXNzIjoiaGlnaHdheSIsInR5cGUiOiJsaXZpbmdfc3RyZWV0IiwiaW1wb3J0YW5jZSI6MC40LCJhZGRyZXNzIjp7InJvYWQiOiJPc2llZGxlIE5hIFd6Z8OzcnphY2giLCJyZXNpZGVudGlhbCI6Ik9zaWVkbGUgTmEgV3pnw7NyemFjaCIsInN1YnVyYiI6Ild6Z8OzcnphIEtyemVzxYJhd2lja2llIiwiY2l0eV9kaXN0cmljdCI6Ild6Z8OzcnphIEtyemVzxYJhd2lja2llIiwiY2l0eSI6IktyYWvDs3ciLCJjb3VudHkiOiJLcmFrw7N3Iiwic3RhdGUiOiJtYcWCb3BvbHNraWUiLCJwb3N0Y29kZSI6IjMxLTcyNiIsImNvdW50cnkiOiJSUCIsImNvdW50cnlfY29kZSI6InBsIn19XQ==
+    http_version: 
+  recorded_at: Thu, 02 Aug 2018 07:12:16 GMT
+recorded_with: VCR 4.0.0

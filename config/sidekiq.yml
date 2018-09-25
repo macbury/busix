@@ -1,0 +1,8 @@
+:max_retries: 25
+:queues:
+  - versions
+  - directions
+  - geocode
+  - lines
+  - stops
+  - default

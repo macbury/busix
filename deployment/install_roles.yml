@@ -1,0 +1,14 @@
+# redis
+- src: DavidWittman.redis
+
+# nginx
+- src: geerlingguy.nginx
+
+# ruby
+- src: geerlingguy.ruby
+
+# .env generator
+- src: https://github.com/ushahidi/ansible-dotenv-generator.git
+
+- src: geerlingguy.postgresql
+- src: geerlingguy.nodejs
