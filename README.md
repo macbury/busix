@@ -7,3 +7,21 @@ Scraps http://www.mpk.krakow.pl/pl/page-f3044045/ and expose public transport as
 # Demo
 
 http://kraków.online/api/explorer
+
+Example Query:
+
+```graphql
+{
+  departures(from: "Białucha", to: "Wzgórza Krzesławickie", at: "10 minutes from now"){
+    line {
+      name
+      kind
+    }
+    
+    time {
+      formatted
+      distance
+    }
+  }
+}
+```
