@@ -3,7 +3,7 @@ require 'sidekiq/cron/web'
 require 'sidekiq/throttled/web'
 
 Sidekiq::Web.use Rack::Auth::Basic do |username, password|
-  username == 'admin' && password == ENV.fetch['SIDEKIQ_BASIC_AUTH_PASSWORD']
+  username == 'admin' && password == ENV.fetch('SIDEKIQ_BASIC_AUTH_PASSWORD')
 end
 
 Rails.application.routes.draw do

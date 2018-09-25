@@ -12,3 +12,4 @@
 
 - src: geerlingguy.postgresql
 - src: geerlingguy.nodejs
+- src: https://github.com/nickhammond/ansible-logrotate
