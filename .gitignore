@@ -31,3 +31,4 @@ execution_map.yml
 .env.local
 deployment/vars.yml
 *.retry
+public/index.html

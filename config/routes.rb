@@ -13,5 +13,8 @@ Rails.application.routes.draw do
   post '/api' => 'api/graphql#execute'
   mount GraphiQL::Rails::Engine, at: '/api/explorer', graphql_path: '/api'
 
-  get '/' => redirect('https://github.com/macbury/busix')
+  get '/about' => redirect('https://github.com/macbury/busix')
+
+  root 'frontend#show'
+  match '*path' => 'frontend#show', via: [:get]
 end

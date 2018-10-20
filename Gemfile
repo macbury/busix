@@ -17,7 +17,7 @@ gem 'activerecord-postgis-adapter', '~> 5.2', '>= 5.2.1'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-gem 'webpacker'
+gem 'webpacker', '>= 4.0.x'
 gem 'mechanize'
 gem 'pry-rails'
 gem 'geokit'

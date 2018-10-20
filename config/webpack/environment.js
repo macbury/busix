@@ -1,3 +1,44 @@
-const { environment } = require('@rails/webpacker')
+const { environment, config } = require('@rails/webpacker')
+const { resolve } = require('path')
+const webpack = require('webpack')
 
-module.exports = environment
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin')
+const AutoDllPlugin = require('autodll-webpack-plugin')
+
+const typescript = require('./loaders/typescript')
+
+environment.loaders.append('typescript', typescript)
+
+environment.plugins.append('html',
+  new HtmlWebpackPlugin({
+    inject: 'body',
+    alwaysWriteToDisk: true,
+    filename: '../index.html',
+    template: resolve('app', 'javascript', 'index.html')
+  })
+)
+
+environment.plugins.append('dll', 
+  new AutoDllPlugin({
+    inject: true, // will inject the DLL bundles to index.html
+    filename: '[name]_[hash].dll.js',
+    path: './libs/',
+    entry: {
+      vendor: [
+        'react',
+        'react-dom'
+      ]
+    }
+  })
+)
+
+environment.plugins.append('hardisk', new HtmlWebpackHarddiskPlugin())
+
+const webpackConfig = environment.toWebpackConfig()
+
+module.exports = {
+  ...webpackConfig,
+  target: 'web',
+  entry: resolve('app/javascript/packs/application.tsx')
+}
