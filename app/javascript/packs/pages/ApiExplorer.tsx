@@ -10,7 +10,7 @@ function graphQLFetcher(graphQLParams) {
   }).then(response => response.json());
 }
 
-export default class ApiExplorer extends React.Component {
+export default class ApiExplorer extends React.Component<any> {
   render() {
     return (
       <Application>

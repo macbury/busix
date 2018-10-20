@@ -37,7 +37,6 @@ environment.plugins.append('dll',
       vendor: [
         'react',
         'react-dom',
-        'reactstrap',
         'graphiql',
         'react-redux',
         'redux',
@@ -45,11 +44,28 @@ environment.plugins.append('dll',
         'react-router-dom',
         'react-router',
         'connected-react-router',
-        'redux-thunk'
+        'redux-thunk',
+        'antd'
       ]
     }
   })
 )
+
+environment.loaders.append('less', {
+  test: /\.less$/,
+  use: [{
+    loader: 'style-loader',
+  }, {
+    loader: 'css-loader', // translates CSS into CommonJS
+  }, {
+    loader: 'less-loader',
+    options: {
+      javascriptEnabled: true
+    }
+  }],
+  // ...other rules
+})
+
 
 environment.plugins.append('hardisk', new HtmlWebpackHarddiskPlugin())
 

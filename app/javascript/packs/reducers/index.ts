@@ -6,6 +6,16 @@ import createHistory from 'history/createBrowserHistory'
 
 const composeEnhancers = (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
+export interface BusixState {
+  router: {
+    action : string,
+    location : {
+      pathname : string,
+      key : string
+    }
+  }
+}
+
 const history = createHistory()
 const reducers = combineReducers({
   test: () => { return {} }

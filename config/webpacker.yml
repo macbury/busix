@@ -18,6 +18,7 @@ default: &default
     - .tsx
     - .ts
     - .js
+    - .less
     - .sass
     - .scss
     - .css

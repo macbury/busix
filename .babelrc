@@ -10,6 +10,7 @@
     ]
   ],
   "plugins": [
+    "transform-decorators-legacy",
     "@babel/plugin-transform-destructuring",
     "@babel/plugin-syntax-dynamic-import",
     [
