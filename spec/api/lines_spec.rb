@@ -11,8 +11,12 @@ RSpec.describe 'Fetching lines', graphql: true do
         %{
           {
             lines {
-              name
-              kind
+              edges {
+                node {
+                  name
+                  kind
+                }
+              }
             }
           }
         }

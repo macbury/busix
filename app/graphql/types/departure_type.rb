@@ -2,7 +2,7 @@ module Types
   class DepartureType < BaseType
     description 'Departure'
     field :time, DepartureTimeType, null: false
-    field :day, String, null: false, description: 'Type of day for depatrure.'
+    field :day, String, null: false, description: 'Type of day for departure.'
 
     field :line, LineType, null: false, complexity: 50, resolve: -> (departure, args, ctx) do
       BatchLoader.for(departure.id).batch do |departure_ids, loader|
