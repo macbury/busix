@@ -7,8 +7,16 @@ const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin')
 const AutoDllPlugin = require('autodll-webpack-plugin')
 
 const typescript = require('./loaders/typescript')
-
 environment.loaders.append('typescript', typescript)
+
+environment.config.merge({
+  resolve:{
+    alias: {
+      '~styles': resolve('app/javascript/packs/styles'),
+      '~containers': resolve('app/javascript/packs/containers'),
+    }
+  }
+})
 
 environment.plugins.append('html',
   new HtmlWebpackPlugin({
@@ -27,7 +35,9 @@ environment.plugins.append('dll',
     entry: {
       vendor: [
         'react',
-        'react-dom'
+        'react-dom',
+        'reactstrap',
+        'graphiql'
       ]
     }
   })

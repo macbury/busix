@@ -11,7 +11,6 @@ Rails.application.routes.draw do
   mount Sidekiq::Web => '/workers'
   
   post '/api' => 'api/graphql#execute'
-  mount GraphiQL::Rails::Engine, at: '/api/explorer', graphql_path: '/api'
 
   get '/about' => redirect('https://github.com/macbury/busix')
 

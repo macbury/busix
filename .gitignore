@@ -32,3 +32,5 @@ execution_map.yml
 deployment/vars.yml
 *.retry
 public/index.html
+*.DS_Store
+*.log

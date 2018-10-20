@@ -9,7 +9,17 @@
     "sourceMap": true,
     "target": "es5",
     "jsx": "react",
-    "esModuleInterop": true
+    "baseUrl": ".",
+    "esModuleInterop": true,
+
+    "paths": {
+      "~containers/*": [
+        "src/javascript/packs/containers/*"
+      ],
+      "packs/*": [
+        "src/javascript/packs/*"
+      ]
+    }
   },
   "exclude": [
     "**/*.spec.ts",
