@@ -1,6 +1,7 @@
+const webpack = require('webpack')
+
 const { environment, config } = require('@rails/webpacker')
 const { resolve } = require('path')
-const webpack = require('webpack')
 
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin')
@@ -37,7 +38,14 @@ environment.plugins.append('dll',
         'react',
         'react-dom',
         'reactstrap',
-        'graphiql'
+        'graphiql',
+        'react-redux',
+        'redux',
+        'prop-types',
+        'react-router-dom',
+        'react-router',
+        'connected-react-router',
+        'redux-thunk'
       ]
     }
   })

@@ -13,7 +13,7 @@
     "esModuleInterop": true,
 
     "paths": {
-      "~containers/*": [
+      "\~containers/*": [
         "src/javascript/packs/containers/*"
       ],
       "packs/*": [
