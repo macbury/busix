@@ -1,4 +1,5 @@
 class Line < ApplicationRecord
+  include Cursorable
   enum kind: %i(tram bus)
   belongs_to :version
   has_many :directions, dependent: :destroy

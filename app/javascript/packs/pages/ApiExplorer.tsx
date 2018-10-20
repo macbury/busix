@@ -13,7 +13,9 @@ function graphQLFetcher(graphQLParams) {
 export default class ApiExplorer extends React.Component {
   render() {
     return (
-      <Application><GraphiQL fetcher={graphQLFetcher} /></Application>
+      <Application>
+        <div style={{ height: '800px' }}><GraphiQL fetcher={graphQLFetcher} /></div>
+      </Application>
     )
   }
 }

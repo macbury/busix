@@ -1,17 +1,15 @@
 module Resolvers
   module Stops
     class All < BaseCollection
-      type [Types::StopType], null: false
+      type Types::StopType.connection_type, null: false
 
       argument :name, String, required: true, description: 'Stop name'
 
-      def resolve(name:, limit:, offset:)
+      def resolve(name:)
         Version.current
                .stops
                .by_name(name)
                .order('name ASC')
-               .limit(limit)
-               .offset(offset)
       end
     end
   end
