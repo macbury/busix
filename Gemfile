@@ -45,6 +45,7 @@ gem 'holidays'
 gem 'rollbar'
 gem "skylight"
 gem 'shortest_path'
+gem 'i18n-js'
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
 

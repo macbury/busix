@@ -25,9 +25,9 @@ class Application extends React.Component<ApplicationProps, any> {
                 style={{ lineHeight: '64px' }} 
                 selectedKeys={[this.props.path]}
                 onClick={this.onNavClick.bind(this)}>
-            <Menu.Item key="/">Find path</Menu.Item>
-            <Menu.Item key="/lines">Linie</Menu.Item>
-            <Menu.Item key="/api/explorer">Api</Menu.Item>
+            <Menu.Item key="/">{I18n.t('layout.header.find_path')}</Menu.Item>
+            <Menu.Item key="/departures">{I18n.t('layout.header.departures')}</Menu.Item>
+            <Menu.Item key="/api/explorer">{I18n.t('layout.header.api')}</Menu.Item>
           </Menu>
         </Header>
         <Content>

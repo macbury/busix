@@ -1,0 +1,6 @@
+pl:
+  layout:
+    header:
+      find_path: 'Trasa'
+      departures: 'Rozkłady'
+      api: 'Api'

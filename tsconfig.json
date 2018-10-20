@@ -11,13 +11,14 @@
     "jsx": "react",
     "baseUrl": ".",
     "esModuleInterop": true,
+    "typeRoots" : ["./app/javascript/types", "./node_modules/@types"],
 
     "paths": {
-      "\~containers/*": [
-        "src/javascript/packs/containers/*"
+      "~containers/*": [
+        "app/javascript/packs/containers/*"
       ],
       "packs/*": [
-        "src/javascript/packs/*"
+        "app/javascript/packs/*"
       ]
     }
   },

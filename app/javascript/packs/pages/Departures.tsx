@@ -1,6 +1,6 @@
 import * as React from 'react'
-import GraphiQL from 'graphiql'
 import Application from '../containers/application'
+import { Skeleton } from 'antd'
 
 function graphQLFetcher(graphQLParams) {
   return fetch(window.location.origin + '/api', {
@@ -10,11 +10,11 @@ function graphQLFetcher(graphQLParams) {
   }).then(response => response.json());
 }
 
-export default class ApiExplorer extends React.Component<any> {
+export default class Departures extends React.Component<any> {
   render() {
     return (
       <Application>
-        <GraphiQL fetcher={graphQLFetcher} />
+        <Skeleton active loading />
       </Application>
     )
   }

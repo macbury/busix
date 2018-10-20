@@ -45,7 +45,8 @@ environment.plugins.append('dll',
         'react-router',
         'connected-react-router',
         'redux-thunk',
-        'antd'
+        'antd',
+        'i18n-js'
       ]
     }
   })

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   Sidekiq::Throttled::Web.enhance_queues_tab!
   mount Sidekiq::Web => '/workers'
   
+  get '/api/locales' => 'api/locales#show'
   post '/api' => 'api/graphql#execute'
 
   get '/about' => redirect('https://github.com/macbury/busix')
