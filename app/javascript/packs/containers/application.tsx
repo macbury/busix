@@ -26,7 +26,7 @@ class Application extends React.Component<ApplicationProps, any> {
                 selectedKeys={[this.props.path]}
                 onClick={this.onNavClick.bind(this)}>
             <Menu.Item key="/">{I18n.t('layout.header.find_path')}</Menu.Item>
-            <Menu.Item key="/departures">{I18n.t('layout.header.departures')}</Menu.Item>
+            <Menu.Item key="/schedules">{I18n.t('layout.header.schedules')}</Menu.Item>
             <Menu.Item key="/api/explorer">{I18n.t('layout.header.api')}</Menu.Item>
           </Menu>
         </Header>

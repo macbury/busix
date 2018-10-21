@@ -2,5 +2,5 @@ pl:
   layout:
     header:
       find_path: 'Trasa'
-      departures: 'Rozkłady'
+      schedules: 'Rozkłady'
       api: 'Api'

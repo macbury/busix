@@ -14,7 +14,7 @@ export default class ApiExplorer extends React.Component<any> {
   render() {
     return (
       <Application>
-        <GraphiQL fetcher={graphQLFetcher} />
+        <div style={{ height: '800px' }}><GraphiQL fetcher={graphQLFetcher} /></div>
       </Application>
     )
   }

@@ -15,6 +15,8 @@ environment.config.merge({
     alias: {
       '~styles': resolve('app/javascript/packs/styles'),
       '~containers': resolve('app/javascript/packs/containers'),
+      '~pages': resolve('app/javascript/packs/pages'),
+      '~actions': resolve('app/javascript/packs/actions'),
     }
   }
 })
@@ -46,7 +48,11 @@ environment.plugins.append('dll',
         'connected-react-router',
         'redux-thunk',
         'antd',
-        'i18n-js'
+        'i18n-js',
+        'apollo-boost',
+        'graphql-tag',
+        'graphql',
+        'redux-actions-generator'
       ]
     }
   })
