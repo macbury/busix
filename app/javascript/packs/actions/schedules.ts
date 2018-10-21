@@ -1,26 +1,12 @@
 import { Schedules  } from './index'
-import ApolloClient from 'apollo-boost';
-import gql from 'graphql-tag'
+import { GraphQLClient } from 'graphql-request'
 
-const client = new ApolloClient({ uri: '/api' })
+const client = new GraphQLClient('/api/')
 
 async function getTest() {
-  const query = gql`
+  const query = `
     {
-      buses: lines(kind: BUS, first: 50) {
-        pageInfo {
-          endCursor
-          hasNextPage
-        }
-        edges {
-          node {
-            name
-            kind
-          }
-        }
-      }
-      
-      trams: lines(kind: TRAM, first: 50) {
+      lines(first: 50) {
         pageInfo {
           endCursor
           hasNextPage
@@ -35,11 +21,7 @@ async function getTest() {
     }
   `
 
-  let data = await client.query({
-    query
-  })
-
-  console.log("Done")
+  const data = await client.request(query)
   console.log(data)
 }
 
@@ -48,7 +30,7 @@ export function fetchSchedules() {
     // check if state schedules is not empty
     // if is fetch everything
     // else skip this action
-    console.log(getState())
+    //console.log(getState())
     await getTest()
     dispatch({ type: Schedules.FETCH })
   }

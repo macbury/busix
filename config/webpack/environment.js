@@ -49,7 +49,7 @@ environment.plugins.append('dll',
         'redux-thunk',
         'antd',
         'i18n-js',
-        'apollo-boost',
+        'graphql-request',
         'graphql-tag',
         'graphql',
         'redux-actions-generator'
