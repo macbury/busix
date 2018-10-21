@@ -17,6 +17,7 @@ environment.config.merge({
       '~containers': resolve('app/javascript/packs/containers'),
       '~pages': resolve('app/javascript/packs/pages'),
       '~actions': resolve('app/javascript/packs/actions'),
+      '~reducers': resolve('app/javascript/packs/reducers'),
     }
   }
 })

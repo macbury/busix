@@ -1,37 +1,44 @@
 import { Schedules  } from './index'
 import { GraphQLClient } from 'graphql-request'
+import { BusixState } from '~reducers/index'
 
 const client = new GraphQLClient('/api/')
 
-async function getTest() {
-  const query = `
-    {
-      lines(first: 50) {
-        pageInfo {
-          endCursor
-          hasNextPage
-        }
-        edges {
-          node {
-            name
-            kind
-          }
+const FETCH_LINES = `
+  query($cursor: String) {
+    lines(first: 50, after: $cursor) {
+      pageInfo {
+        endCursor
+        hasNextPage
+      }
+      edges {
+        node {
+          name
+          kind
         }
       }
     }
-  `
+  }
+`
 
-  const data = await client.request(query)
-  console.log(data)
+async function fetchAllLines(cursor = '') {
+  let { lines } = await client.request(FETCH_LINES, { cursor }) as any
+  const { pageInfo, edges } = lines
+  let nodes = edges.map(({ node }) => node)
+  
+  if (pageInfo.hasNextPage) {
+    nodes = nodes.concat(await fetchAllLines(pageInfo.endCursor))
+  }
+  return nodes
 }
 
 export function fetchSchedules() {
   return async (dispatch, getState) => {
-    // check if state schedules is not empty
-    // if is fetch everything
-    // else skip this action
-    //console.log(getState())
-    await getTest()
-    dispatch({ type: Schedules.FETCH })
+    let { schedules } : BusixState = getState()
+    if (schedules.lines.length == 0) {
+      dispatch({ type: Schedules.START_FETCH })
+      let lines = await fetchAllLines()
+      dispatch({ type: Schedules.FETCH_SUCCESS, payload: lines })
+    }
   }
 }

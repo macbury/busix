@@ -14,6 +14,9 @@
     "typeRoots" : ["./app/javascript/types", "./node_modules/@types"],
 
     "paths": {
+      "~reducers/*": [
+        "app/javascript/packs/reducers/*"
+      ],
       "~actions/*": [
         "app/javascript/packs/actions/*"
       ],

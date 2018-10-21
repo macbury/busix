@@ -6,7 +6,10 @@ import createHistory from 'history/createBrowserHistory'
 
 const composeEnhancers = (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
+import { schedules, ISchedulesState } from './schedules'
+
 export interface BusixState {
+  schedules: ISchedulesState
   router: {
     action : string,
     location : {
@@ -18,7 +21,7 @@ export interface BusixState {
 
 const history = createHistory()
 const reducers = combineReducers({
-  test: () => { return {} }
+  schedules
 })
 
 const middlewares = applyMiddleware(

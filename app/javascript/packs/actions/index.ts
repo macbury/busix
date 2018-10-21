@@ -1,5 +1,6 @@
 import createActions from 'redux-actions-generator'
 
 export const Schedules = createActions('schedules', [
-  'FETCH'
+  'START_FETCH',
+  'FETCH_SUCCESS'
 ])

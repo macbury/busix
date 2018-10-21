@@ -5,8 +5,12 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { fetchSchedules } from '~actions/schedules'
 
+import { BusixState } from '~reducers/index'
+import { Status } from '~reducers/schedules'
+
 interface ISchedulesProps {
-  fetchSchedules();
+  fetchSchedules?()
+  status? : Status
 }
 
 class Schedules extends React.Component<ISchedulesProps> {
@@ -17,7 +21,9 @@ class Schedules extends React.Component<ISchedulesProps> {
   render() {
     return (
       <Application>
-        <Skeleton active loading />
+        <Skeleton active loading={this.props.status == Status.Loading}>
+          <p>Lines are loaded!</p>
+        </Skeleton>
       </Application>
     )
   }
@@ -27,4 +33,9 @@ function mapActionsToProps(dispatch) : ISchedulesProps {
   return bindActionCreators({ fetchSchedules }, dispatch)
 }
 
-export default connect(null, mapActionsToProps)(Schedules)
+function mapStateToProps({ schedules } : BusixState) : ISchedulesProps {
+  let { status } = schedules
+  return { status }
+}
+
+export default connect(mapStateToProps, mapActionsToProps)(Schedules)
