@@ -23,67 +23,49 @@ RSpec.describe 'Fetching lines', graphql: true do
       end
 
       it 'return buses and trams' do 
-        is_expected.to match({
-          'lines' => [
-            { 'name' => /\d+/i, 'kind' => 'tram' },
-            { 'name' => /\d+/i, 'kind' => 'tram' },
-            { 'name' => /\d+/i, 'kind' => 'bus' },
-            { 'name' => /\d+/i, 'kind' => 'bus' }
-          ]
-        })
+        is_expected.to match(
+          {
+            'lines' => {
+              'edges' => [
+                { 'node' => { 'name' => /\d+/i, 'kind' => 'tram' } },
+                { 'node' => { 'name' => /\d+/i, 'kind' => 'tram' } },
+                { 'node' => { 'name' => /\d+/i, 'kind' => 'bus' } },
+                { 'node' => { 'name' => /\d+/i, 'kind' => 'bus' } }
+              ]
+            }
+          }
+        )
       end
     end
 
-    describe 'kind TRAM' do
+    describe 'one type only' do
       let(:query_string) do
         %{
           {
-            lines(kind: TRAM) {
-              name
-              kind
-            }
-          }
-        }
-      end
-
-      it 'return trams' do 
-        is_expected.to match({
-          'lines' => [
-            { 'name' => /\d+/i, 'kind' => 'tram' },
-            { 'name' => /\d+/i, 'kind' => 'tram' }
-          ]
-        })
-      end
-    end
-  end
-  
-  describe 'fetch directions, stops and departures' do
-    let!(:line) { create(:line, :with_departure, version: current_version) }
-    let(:query_string) do
-      %{
-        {
-          lines {
-            directions {
-              name
-              stops {
-                name
-                departures {
-                  formattedTime
-                  day
+            lines(kind: BUS) {
+              edges {
+                node {
+                  name
+                  kind
                 }
               }
             }
           }
         }
-      }
-    end
-    
-    it 'return trams' do
-      line = subject['lines'][0]
-      direction = line['directions'][0]
-      stop = direction['stops'][0]
-      departure = stop['departures'][0]
-      expect(departure).not_to be_nil
+      end
+
+      it 'return buses' do 
+        is_expected.to match(
+          {
+            'lines' => {
+              'edges' => [
+                { 'node' => { 'name' => /\d+/i, 'kind' => 'bus' } },
+                { 'node' => { 'name' => /\d+/i, 'kind' => 'bus' } }
+              ]
+            }
+          }
+        )
+      end
     end
   end
 end

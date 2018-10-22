@@ -1,7 +1,8 @@
 import { Schedules } from '~actions/index'
 
-interface Line {
+export interface Line {
   name : string;
+  kind : string;
 }
 
 export enum Status {
@@ -30,7 +31,13 @@ export function schedules(state : ISchedulesState = INITIAL_STATE, { type, paylo
       return {...INITIAL_STATE, status: Status.Loading}
     case Schedules.FETCH_SUCCESS:
       let lines = payload
-      return { ...state, status: Status.Success, lines }
+      return { 
+        ...state, 
+        status: Status.Success, 
+        trams: lines.filter(({ kind }) => kind == 'tram'),
+        buses: lines.filter(({ kind }) => kind == 'bus'),
+        lines 
+      }
   }
   return state
 }
