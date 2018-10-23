@@ -13,6 +13,7 @@ import { store, history } from './reducers'
 
 import ApiExplorer from './pages/ApiExplorer'
 import Schedules from './pages/Schedules'
+import Directions from './pages/Directions'
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.querySelector('#root')
@@ -22,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <Provider store={store}>
         <ConnectedRouter history={history}>
           <Switch>
-            <Route exact path="/" component={Application} />
+            <Route exact path="/" component={Directions} />
             <Route exact path="/schedules" component={Schedules} />
             <Route exact path="/api/explorer" component={ApiExplorer} />
           </Switch>

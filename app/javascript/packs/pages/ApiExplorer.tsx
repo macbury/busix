@@ -1,6 +1,9 @@
 import * as React from 'react'
 import GraphiQL from 'graphiql'
 import Application from '../containers/application'
+import { clearBreadcrump } from '~actions/ui'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 
 function graphQLFetcher(graphQLParams) {
   return fetch(window.location.origin + '/api', {
@@ -10,12 +13,26 @@ function graphQLFetcher(graphQLParams) {
   }).then(response => response.json());
 }
 
-export default class ApiExplorer extends React.Component<any> {
+interface IApiExplorerProps {
+  clearBreadcrump?()
+}
+
+class ApiExplorer extends React.Component<IApiExplorerProps> {
+  componentDidMount() {
+    this.props.clearBreadcrump()
+  }
+  
   render() {
     return (
       <Application>
-        <div style={{ height: '800px' }}><GraphiQL fetcher={graphQLFetcher} /></div>
+        <GraphiQL fetcher={graphQLFetcher} />
       </Application>
     )
   }
 }
+
+function mapActionsToProps(dispatch) {
+  return bindActionCreators({ clearBreadcrump }, dispatch)
+}
+
+export default connect(null, mapActionsToProps)(ApiExplorer)

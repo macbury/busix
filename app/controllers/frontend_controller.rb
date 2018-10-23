@@ -1,5 +1,5 @@
 class FrontendController < ActionController::Base
   def show
-    render file: Rails.root.join('public', 'index.html'), layout: false
+    render file: Rails.root.join('public', 'main.html'), layout: false
   end
 end

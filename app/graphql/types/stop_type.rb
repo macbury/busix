@@ -5,6 +5,6 @@ module Types
 
     field :name, String, null: false, description: 'Name of stop'
     field :location, LocationType, null: true, description: 'Latitude and longitude position of this stop'
-    field :directions, DirectionType.connection_type, null: false, description: 'What directions are available on this stop'
+    field :directions, [DirectionType], null: false, description: 'What directions are available on this stop'
   end
 end

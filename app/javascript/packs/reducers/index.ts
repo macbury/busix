@@ -7,9 +7,11 @@ import createHistory from 'history/createBrowserHistory'
 const composeEnhancers = (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
 import { schedules, ISchedulesState } from './schedules'
+import { ui, IUIState } from './ui'
 
 export interface BusixState {
   schedules: ISchedulesState
+  ui: IUIState
   router: {
     action : string,
     location : {
@@ -21,14 +23,20 @@ export interface BusixState {
 
 const history = createHistory()
 const reducers = combineReducers({
-  schedules
+  schedules, ui
 })
 
-const middlewares = applyMiddleware(
+let middlewares = [
   routerMiddleware(history),
   thunkMiddleware
-)
+]
 
-const store = createStore(connectRouter(history)(reducers), composeEnhancers(middlewares))
+if (process.env.NODE_ENV === 'development') {
+  const { logger } = require('redux-logger')
+
+  middlewares.push(logger)
+}
+
+const store = createStore(connectRouter(history)(reducers), composeEnhancers(applyMiddleware(...middlewares)))
 
 export { store, history }

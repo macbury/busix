@@ -271,6 +271,13 @@ GEM
       rack
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
+    rack-throttle (0.7.0)
+      bundler (>= 1.0.0)
+      rack (>= 1.0.0)
+    rack-tracker (1.7.0)
+      activesupport (>= 3.0)
+      rack (>= 1.4)
+      tilt (>= 1.4)
     rails (5.2.0)
       actioncable (= 5.2.0)
       actionmailer (= 5.2.0)
@@ -452,6 +459,8 @@ DEPENDENCIES
   pry
   pry-rails
   puma (~> 3.11)
+  rack-throttle
+  rack-tracker
   rails (~> 5.2.0)
   redis (~> 4.0)
   rgeo-activerecord

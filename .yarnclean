@@ -8,7 +8,6 @@ powered-test
 docs
 doc
 website
-images
 
 # examples
 example
@@ -35,6 +34,5 @@ Gruntfile.js
 .yarn-metadata.json
 
 # misc
-*.gz
 *.md
 

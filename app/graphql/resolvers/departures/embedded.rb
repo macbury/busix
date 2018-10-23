@@ -1,7 +1,7 @@
 module Resolvers
   module Departures
     class Embedded < BaseCollection
-      type Types::DepartureType.connection_type, null: false
+      type [Types::DepartureType], null: false
 
       argument :kind, Enums::DepartureKind, default_value: :all, description: 'For what day, ignored if at is added', required: false
       argument :at, Arguments::Time, required: false, description: 'Time of departure'

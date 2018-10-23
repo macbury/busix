@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   mount Sidekiq::Web => '/workers'
   
   get '/api/locales' => 'api/locales#show'
-  post '/api' => 'api/graphql#execute'
+  post '/api' => 'api/graphql#execute', as: :api
 
   get '/about' => redirect('https://github.com/macbury/busix')
 

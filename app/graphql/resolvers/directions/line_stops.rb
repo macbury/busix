@@ -1,7 +1,7 @@
 module Resolvers
   module Directions
     class LineStops < Base
-      type Types::LineStopType, null: false
+      type [Types::LineStopType], null: false
 
       def resolve
         BatchLoader.for(object.id).batch(default_value: []) do |direction_ids, loader|

@@ -4,7 +4,7 @@ module Types
     field :time, DepartureTimeType, null: false
     field :day, String, null: false, description: 'Type of day for departure.'
 
-    field :line, LineType, null: false, complexity: 50, resolve: -> (departure, args, ctx) do
+    field :line, SimpleLineType, null: false, complexity: 50, resolve: -> (departure, args, ctx) do
       BatchLoader.for(departure.id).batch do |departure_ids, loader|
         Line.for_departure_ids(departure_ids).each do |line| 
           loader.call(line.departure_id, line)
