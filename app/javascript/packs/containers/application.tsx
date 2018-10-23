@@ -62,7 +62,7 @@ class Application extends React.Component<ApplicationProps, any> {
           </Menu>
         </Sider>
         <Layout>
-          <Content>
+          <Content className="main-content">
             <Breadcrumbs breadcrumbs={this.props.breadcrumbs} />
             {this.props.children}
           </Content>

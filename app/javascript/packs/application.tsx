@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <ConnectedRouter history={history}>
           <Switch>
             <Route exact path="/" component={Directions} />
-            <Route exact path="/schedules" component={Schedules} />
+            <Route path="/schedules" component={Schedules} />
             <Route exact path="/api/explorer" component={ApiExplorer} />
           </Switch>
         </ConnectedRouter>
