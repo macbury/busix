@@ -34,3 +34,4 @@ deployment/vars.yml
 public/index.html
 *.DS_Store
 *.log
+public/**/*

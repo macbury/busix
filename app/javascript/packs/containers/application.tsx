@@ -26,7 +26,7 @@ function Breadcrumbs({ breadcrumbs }) {
   }
 
   let items = breadcrumbs.map((item : IBreadcrumpItem, index) => {
-    return <Breadcrumb.Item>{item.name}</Breadcrumb.Item>
+    return <Breadcrumb.Item key={`bread_${index}`}>{item.name}</Breadcrumb.Item>
   })
 
   return (
