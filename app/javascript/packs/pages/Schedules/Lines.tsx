@@ -18,9 +18,9 @@ interface ILinesProps {
 function LinesList({ lines }) {
   return lines.map((line : Line, index : number) => {
     return (
-      <p key={`line_${line.kind}_${index}`}>
+      <li key={`line_${line.kind}_${index}`}>
         <Link to={`/schedules/${line.name}`}>{line.name}</Link>
-      </p>
+      </li>
     )
   })
 }
@@ -33,10 +33,10 @@ class Lines extends React.Component<ILinesProps> {
   render() {
     return (
       <Skeleton active loading={this.props.status == Status.Loading}>
-        <h4>Buses</h4>
-        <LinesList lines={this.props.buses} />
-        <h4>Trams</h4>
-        <LinesList lines={this.props.trams} />
+        <ul className="ui-items">
+          <LinesList lines={this.props.buses} />
+          <LinesList lines={this.props.trams} />
+        </ul>
       </Skeleton>
     )
   }

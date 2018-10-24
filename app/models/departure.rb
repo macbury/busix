@@ -14,10 +14,14 @@ class Departure < ApplicationRecord
     target_stop ? joins(:direction).where('directions.target_id = ?', target_stop.id) : all
   }
 
+  scope :for_line, -> (line) { line ? joins(:line).where('lines.id = ?', line.id) : all }
+
   scope :for_time, -> (time) {
     duration = (time - time.at_beginning_of_day).round
     where('departures.time >= :duration', duration: duration)
   }
+
+  scope :by_kind, -> (kind) { kind == :all ? all : where(kind: kind) }
 
   scope :for_day, -> (time) { where(day: day_for_time(time)) }
 

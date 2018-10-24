@@ -29,7 +29,7 @@ module Resolvers
         BatchLoader.for(object.id).batch(default_value: []) do |line_stop_ids, loader|
           Departure.for_line_stop_ids(line_stop_ids)
                    .order('time ASC')
-                   .send(kind).each do |departure| 
+                   .by_kind(kind).each do |departure| 
             loader.call(departure.line_stop_id) { |memo| memo << departure }
           end
         end

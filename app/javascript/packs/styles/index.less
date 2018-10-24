@@ -1,6 +1,7 @@
 @import "~antd/dist/antd.less"; 
 @import "~graphiql/graphiql.css";
 @import "~leaflet/dist/leaflet.css";
+@import "./components/list";
 
 body, html, #root, #root > div {
   min-height: 100vh;
@@ -31,9 +32,9 @@ body, html, #root, #root > div {
 .full-height-row {
   flex: 1;
   display: flex;
+  border-top: 1px solid #e8e8e8;
 
   .col-scroll {
-    flex: 1;
     position: relative;
     overflow-y: scroll;
     .col-scroll-inner {

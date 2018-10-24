@@ -13,6 +13,7 @@ const FETCH_LINES_QUERY = `
       }
       edges {
         node {
+          id
           name
           kind
         }
@@ -47,20 +48,30 @@ const FETCH_DIRECTIONS_QUERY = `
   query($line:String!){
     line(name: $line) {
       name
-      kind
+      id
       directions {
+        id
         name
+        start {
+          id
+          name
+        }
+        target {
+          id
+          name
+        }
+        stops {
+          id
+          name 
+        }
       }
     }
   }
 `
 
 export function fetchDirections(line) {
-  console.log(`Fetching direction for: ${line}`)
   return async (dispatch, getState) => {
     let response = await client.request(FETCH_DIRECTIONS_QUERY, { line }) as any
-
-    //dispatch({ type: Schedules.START_FETCH })
-    console.log(response)
+    dispatch({ type: Schedules.SET_DIRECTIONS, payload: { line: response.line } })
   }
 }

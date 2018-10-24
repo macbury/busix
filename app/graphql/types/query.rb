@@ -6,6 +6,8 @@ module Types
     field :lines, resolver: Resolvers::Lines::All, null: false, description: 'List all lines'
     field :near_stops, resolver: Resolvers::Stops::Near, null: true, description: 'Find all stops near location'
     field :stops, resolver: Resolvers::Stops::All, null: false, description: 'Find stop by name'
+
+    field :timetable, resolver: Resolvers::Departures::Timetable, null: true, description: 'List all departures for given stop and line'
     field :departures, resolver: Resolvers::Departures::All, null: true, description: 'List departures for stop'
     field :nearDepartures, resolver: Resolvers::Departures::Near, null: true, description: 'List departures near location'
   end

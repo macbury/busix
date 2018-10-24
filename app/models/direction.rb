@@ -1,5 +1,6 @@
 class Direction < ApplicationRecord
   belongs_to :line
+  belongs_to :start, class_name: 'Stop', required: false
   belongs_to :target, class_name: 'Stop', required: false
   has_many :line_stops, dependent: :destroy
   has_many :stops, through: :line_stops

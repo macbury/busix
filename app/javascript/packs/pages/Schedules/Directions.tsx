@@ -6,10 +6,11 @@ import { bindActionCreators } from 'redux'
 
 import { fetchDirections } from '~actions/schedules'
 import { BusixState } from '~reducers/index'
-import { Status, Line } from '~reducers/schedules'
+import { Status, IDirection } from '~reducers/schedules'
 
 interface IDirectionsProps {
   fetchDirections?(lineId)
+  directions?: { [lineName : string] : Array<IDirection> }
   match?: {
     params: {
       lineId : string
@@ -17,6 +18,15 @@ interface IDirectionsProps {
   }
 }
 
+function DirectionsList({ directions, lineId }) {
+  return directions.map((direction : IDirection, index : number) => {
+    return (
+      <li key={`direction_${index}`}>
+        <Link to={`/schedules/${lineId}/${direction.name}`}>{direction.start.name} - {direction.target.name}</Link>
+      </li>
+    )
+  })
+}
 
 class Directions extends React.Component<IDirectionsProps> {
   componentDidMount() {
@@ -33,10 +43,16 @@ class Directions extends React.Component<IDirectionsProps> {
     }
   }
 
+  get directions() : Array<IDirection> | null {
+    return this.props.directions[this.lineId]
+  }
+
   render() {
     return (
-      <Skeleton active loading={true}>
-
+      <Skeleton active loading={this.directions == null}>
+        <ul className="ui-items">
+          <DirectionsList directions={this.directions} lineId={this.lineId} />
+        </ul>
       </Skeleton>
     )
   }
@@ -47,7 +63,8 @@ function mapActionsToProps(dispatch) : IDirectionsProps {
 }
 
 function mapStateToProps({ schedules } : BusixState) : IDirectionsProps {
-  return {}
+  let { directions } = schedules
+  return { directions }
 }
 
 export default connect(mapStateToProps, mapActionsToProps)(Directions)

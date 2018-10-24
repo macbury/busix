@@ -57,6 +57,7 @@ module Crawler
         ActiveRecord::Base.transaction do
           direction.line_stops.destroy_all
           stops.map { |data| data[:line_stop] = direction.line_stops.find_or_create_by!(stop: data[:stop]) }
+          direction.start  = stops.first[:line_stop].stop
           direction.target = stops.last[:line_stop].stop
           direction.save
         end

@@ -4,7 +4,9 @@ import { Col } from 'antd'
 export default function ScrollCol({ span, children }) {
   return (
     <Col span={span} className="col-scroll">
-      {children}
+      <div className="col-scroll-inner">
+        {children}
+      </div>
     </Col>
   )
 }
