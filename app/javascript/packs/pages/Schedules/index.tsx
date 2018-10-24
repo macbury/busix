@@ -31,14 +31,13 @@ class Schedules extends React.Component<ISchedulesProps> {
           <ScrollCol span={2}>
             <Route path="/schedules" component={Lines} />
           </ScrollCol>
-
-          <ScrollCol span={5}>
+          <ScrollCol span={7}>
             <Route path="/schedules/:lineId" component={Directions} />
           </ScrollCol>
           <ScrollCol span={5}>
             <Route path="/schedules/:lineId/:directionName" component={Stops} />
           </ScrollCol>
-          <ScrollCol span={12}>
+          <ScrollCol span={10}>
             <p>Timetable</p>
           </ScrollCol>
         </Row>

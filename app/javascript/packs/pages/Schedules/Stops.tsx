@@ -20,7 +20,10 @@ function StopsList({ stops, directionName, lineId }) {
   return stops.map((stop : IStop, index : number) => {
     return (
       <li key={`stop_${index}`}>
-        <Link to={`/schedules/${lineId}/${directionName}/${stop.name}`}>{stop.name}</Link>
+        <Link to={`/schedules/${lineId}/${directionName}/${stop.name}`}>
+          {stop.name}
+          <i className="submenu-arrow" />
+        </Link>
       </li>
     )
   })

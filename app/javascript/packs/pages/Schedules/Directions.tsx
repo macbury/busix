@@ -22,7 +22,10 @@ function DirectionsList({ directions, lineId }) {
   return directions.map((direction : IDirection, index : number) => {
     return (
       <li key={`direction_${index}`}>
-        <Link to={`/schedules/${lineId}/${direction.name}`}>{direction.start.name} - {direction.target.name}</Link>
+        <Link to={`/schedules/${lineId}/${direction.name}`}>
+          {direction.start.name} - {direction.target.name}
+          <i className="submenu-arrow" />
+        </Link>
       </li>
     )
   })

@@ -7,9 +7,61 @@
   li a {
     background: #fff;
     color: rgba(0, 0, 0, 0.65);
-    padding: 15px 16px;
+    padding: 15px 30px 15px 16px;
     display: block;
     font-size: 14px;
     border-bottom: 1px solid #e8e8e8;
+    position: relative;
+
+    &:hover, &:focus {
+      color: #1890ff;
+      text-decoration: none;
+    }
+
+    &:active, &.selected {
+      background-color: #e6f7ff;
+      color: #1890ff;
+      text-decoration: none;
+
+      &:after {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        border-right: 3px solid #1890ff;
+      }
+    }
+
+    .submenu-arrow {
+      position: absolute;
+      top: 50%;
+      right: 16px;
+      width: 10px;
+
+      &:before {
+        content: '';
+        position: absolute;
+        vertical-align: baseline;
+        background: #fff;
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65));
+        width: 6px;
+        height: 1.5px;
+        border-radius: 2px;
+        transform: rotate(45deg) translateY(-2px);
+      }
+
+      &:after {
+        transform: rotate(-45deg) translateY(2px);
+        background: #fff;
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65));
+        width: 6px;
+        height: 1.5px;
+        border-radius: 2px;
+        content: '';
+        position: absolute;
+        vertical-align: baseline;
+      }
+    }
   }
 }
