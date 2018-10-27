@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { Spin } from 'antd'
+import { Spin, Icon } from 'antd'
 import { bindActionCreators } from 'redux'
 
 import { fetchDirections } from '~actions/schedules'
@@ -26,7 +26,9 @@ function DirectionsList({ directions, lineId, currentDirection }) {
     return (
       <li key={`direction_${index}`}>
         <Link to={`/schedules/${lineId}/${direction.name}`} className={klass}>
-          {direction.start.name} - {direction.target.name}
+          {direction.start.name}
+          <Icon type="caret-right" theme="outlined" />
+          {direction.target.name}
           <i className="submenu-arrow" />
         </Link>
       </li>
