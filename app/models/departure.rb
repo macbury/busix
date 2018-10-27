@@ -21,7 +21,7 @@ class Departure < ApplicationRecord
     where('departures.time >= :duration', duration: duration)
   }
 
-  scope :by_kind, -> (kind) { kind == :all ? all : where(kind: kind) }
+  scope :by_day, -> (day) { day == :all ? all : where(day: day) }
 
   scope :for_day, -> (time) { where(day: day_for_time(time)) }
 

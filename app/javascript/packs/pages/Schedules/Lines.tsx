@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { Skeleton } from 'antd'
+import { Spin } from 'antd'
 import { bindActionCreators } from 'redux'
 
 import { fetchSchedules } from '~actions/schedules'
@@ -20,8 +20,8 @@ function LinesList({ lines, currentLine }) {
   return lines.map((line : Line, index : number) => {
     let klass = currentLine == line.name ? 'selected' : null
     return (
-      <li key={`line_${line.kind}_${index}`} className={klass}>
-        <Link to={`/schedules/${line.name}`}>
+      <li key={`line_${line.kind}_${index}`}>
+        <Link to={`/schedules/${line.name}`} className={klass}>
           {line.name}
           <i className="submenu-arrow" />
         </Link>
@@ -36,13 +36,16 @@ class Lines extends React.Component<ILinesProps> {
   }
 
   render() {
+    let { currentLine } = this.props
     return (
-      <Skeleton active loading={this.props.status == Status.Loading}>
+      <Spin spinning={this.props.status == Status.Loading}>
         <ul className="ui-items">
-          <LinesList lines={this.props.buses} lineId={this.props.currentLine} />
-          <LinesList lines={this.props.trams} lineId={this.props.currentLine} />
+          <li className="ui-items-header">{I18n.t('schedules.trams')}</li>
+          <LinesList lines={this.props.trams} currentLine={currentLine} />
+          <li className="ui-items-header">{I18n.t('schedules.buses')}</li>
+          <LinesList lines={this.props.buses} currentLine={currentLine} />
         </ul>
-      </Skeleton>
+      </Spin>
     )
   }
 }
@@ -56,4 +59,4 @@ function mapStateToProps({ schedules } : BusixState) : ILinesProps {
   return { status, trams, buses }
 }
 
-export default connect(mapStateToProps, mapActionsToProps)(Lines)
+export default connect<{}, {}, ILinesProps>(mapStateToProps, mapActionsToProps)(Lines) 

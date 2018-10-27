@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { Skeleton } from 'antd'
+import { Spin } from 'antd'
 import { bindActionCreators } from 'redux'
 
 import { fetchDirections } from '~actions/schedules'
@@ -10,6 +10,8 @@ import { Status, IDirection } from '~reducers/schedules'
 
 interface IDirectionsProps {
   fetchDirections?(lineId)
+  currentLine?: string
+  currentDirection?: string
   directions?: { [lineName : string] : Array<IDirection> }
   match?: {
     params: {
@@ -18,11 +20,12 @@ interface IDirectionsProps {
   }
 }
 
-function DirectionsList({ directions, lineId }) {
-  return directions.map((direction : IDirection, index : number) => {
+function DirectionsList({ directions, lineId, currentDirection }) {
+  return (directions || []).map((direction : IDirection, index : number) => {
+    let klass = currentDirection == direction.name ? 'selected' : null
     return (
       <li key={`direction_${index}`}>
-        <Link to={`/schedules/${lineId}/${direction.name}`}>
+        <Link to={`/schedules/${lineId}/${direction.name}`} className={klass}>
           {direction.start.name} - {direction.target.name}
           <i className="submenu-arrow" />
         </Link>
@@ -33,30 +36,28 @@ function DirectionsList({ directions, lineId }) {
 
 class Directions extends React.Component<IDirectionsProps> {
   componentDidMount() {
-    this.props.fetchDirections(this.lineId)
-  }
-
-  get lineId() : string {
-    return this.props.match.params.lineId
+    this.props.fetchDirections(this.props.currentLine)
   }
 
   componentDidUpdate(prevProps : IDirectionsProps) {
-    if (this.lineId != prevProps.match.params.lineId) {
-      this.props.fetchDirections(this.lineId)
+    if (this.props.currentLine != prevProps.currentLine) {
+      this.props.fetchDirections(this.props.currentLine)
     }
   }
 
   get directions() : Array<IDirection> | null {
-    return this.props.directions[this.lineId]
+    return this.props.directions[this.props.currentLine]
   }
 
   render() {
     return (
-      <Skeleton active loading={this.directions == null}>
+      <Spin spinning={this.directions == null}>
         <ul className="ui-items">
-          <DirectionsList directions={this.directions} lineId={this.lineId} />
+          <DirectionsList directions={this.directions} 
+                          lineId={this.props.currentLine} 
+                          currentDirection={this.props.currentDirection} />
         </ul>
-      </Skeleton>
+      </Spin>
     )
   }
 }
@@ -70,4 +71,4 @@ function mapStateToProps({ schedules } : BusixState) : IDirectionsProps {
   return { directions }
 }
 
-export default connect(mapStateToProps, mapActionsToProps)(Directions)
+export default connect<{}, {}, IDirectionsProps>(mapStateToProps, mapActionsToProps)(Directions)

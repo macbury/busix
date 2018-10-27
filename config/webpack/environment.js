@@ -20,6 +20,7 @@ environment.config.merge({
       '~pages': resolve('app/javascript/packs/pages'),
       '~actions': resolve('app/javascript/packs/actions'),
       '~reducers': resolve('app/javascript/packs/reducers'),
+      '~components': resolve('app/javascript/packs/components'),
       "./images/": resolve("./node_modules/leaflet/dist/images/")
     }
   }

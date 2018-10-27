@@ -1,7 +1,7 @@
 class Schema < GraphQL::Schema
   query Types::Query
   use BatchLoader::GraphQL
-  default_max_page_size 50
+  default_max_page_size 100
 
   middleware(GraphQL::Schema::TimeoutMiddleware.new(max_seconds: 30) do |err, query|
     Rails.logger.info("GraphQL Timeout: #{query.query_string}")

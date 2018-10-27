@@ -6,7 +6,6 @@ import { Provider } from 'react-redux'
 import { ConnectedRouter } from 'connected-react-router'
 import { Route, Switch } from 'react-router-dom'
 
-import Application from './containers/application'
 import AppWithTranslations from './containers/AppWithTranslations'
 
 import { store, history } from './reducers'
@@ -24,8 +23,22 @@ document.addEventListener('DOMContentLoaded', () => {
         <ConnectedRouter history={history}>
           <Switch>
             <Route exact path="/" component={Directions} />
-            <Route path="/schedules" component={Schedules} />
             <Route exact path="/api/explorer" component={ApiExplorer} />
+            <Route path={'/schedules/:currentLine/:currentDirection/:currentStop/:forDate'} 
+                   component={Schedules}
+                   exact />
+            <Route path={'/schedules/:currentLine/:currentDirection/:currentStop'} 
+                   component={Schedules}
+                   exact />
+            <Route path={'/schedules/:currentLine/:currentDirection'} 
+                   component={Schedules}
+                   exact />
+            <Route path={'/schedules/:currentLine'} 
+                   component={Schedules}
+                   exact />
+            <Route path={'/schedules'} 
+                   component={Schedules}
+                   exact />
           </Switch>
         </ConnectedRouter>
       </Provider>

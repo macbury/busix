@@ -8,5 +8,6 @@ export const Schedules = createActions('schedules', [
 
 export const UI = createActions('ui', [
   'TOGGLE_COLLAPSE',
-  'SET_BREADCRUMP'
+  'SET_BREADCRUMP',
+  'SET_PAGE'
 ])

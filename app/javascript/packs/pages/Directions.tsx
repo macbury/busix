@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { clearBreadcrump } from '~actions/ui'
+import { clearBreadcrump, setCurrentPage } from '~actions/ui'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import Application from '../containers/application'
@@ -7,11 +7,13 @@ import { Map, TileLayer, Marker, Popup } from 'react-leaflet'
 
 interface IApiExplorerProps {
   clearBreadcrump?()
+  setCurrentPage?(page)
 }
 
 class Directions extends React.Component<IApiExplorerProps> {
   componentDidMount() {
     this.props.clearBreadcrump()
+    this.props.setCurrentPage('find_path')
   }
 
   render() {
@@ -30,7 +32,7 @@ class Directions extends React.Component<IApiExplorerProps> {
 }
 
 function mapActionsToProps(dispatch) {
-  return bindActionCreators({ clearBreadcrump }, dispatch)
+  return bindActionCreators({ clearBreadcrump, setCurrentPage }, dispatch)
 }
 
 export default connect(null, mapActionsToProps)(Directions)

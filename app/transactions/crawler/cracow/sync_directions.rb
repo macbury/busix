@@ -59,6 +59,10 @@ module Crawler
           stops.map { |data| data[:line_stop] = direction.line_stops.find_or_create_by!(stop: data[:stop]) }
           direction.start  = stops.first[:line_stop].stop
           direction.target = stops.last[:line_stop].stop
+
+          throw "start for direction #{direction.id} is null" unless direction.start
+          throw "target for direction #{direction.id} is null" unless direction.target
+
           direction.save
         end
         

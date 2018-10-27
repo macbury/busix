@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { Spin } from 'antd'
 require("expose-loader?I18n!i18n-js")
 
 interface IState {
@@ -27,7 +28,7 @@ export default class AppWithTranslations extends React.Component<any, IState> {
 
   render() {
     if (this.state.loading) {
-      return <p>Loading</p>
+      return <Spin spinning={true} />
     } else {
       return <React.Fragment>{this.props.children}</React.Fragment>
     }

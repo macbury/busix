@@ -1,26 +1,24 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { Skeleton } from 'antd'
+import { Spin } from 'antd'
 
 import { BusixState } from '~reducers/index'
 import { Status, IDirection, IStop } from '~reducers/schedules'
 
-interface IDirectionsProps {
+interface IStopsProps {
   directions?: { [lineName : string] : Array<IDirection> }
-  match?: {
-    params: {
-      lineId : string
-      directionName : string
-    }
-  }
+  currentLine?: string
+  currentDirection?: string
+  currentStop?: string
 }
 
-function StopsList({ stops, directionName, lineId }) {
+function StopsList({ stops, currentDirection, currentLine, currentStop }) {
   return stops.map((stop : IStop, index : number) => {
+    let klass = currentStop == stop.name ? 'selected' : null
     return (
       <li key={`stop_${index}`}>
-        <Link to={`/schedules/${lineId}/${directionName}/${stop.name}`}>
+        <Link to={`/schedules/${currentLine}/${currentDirection}/${stop.name}`}  className={klass}>
           {stop.name}
           <i className="submenu-arrow" />
         </Link>
@@ -29,25 +27,17 @@ function StopsList({ stops, directionName, lineId }) {
   })
 }
 
-class Stops extends React.Component<IDirectionsProps> {
-
-  get lineId() : string {
-    return this.props.match.params.lineId
-  }
-
-  get directionName() : string {
-    return this.props.match.params.directionName
-  }
+class Stops extends React.Component<IStopsProps> {
 
   get directions() : Array<IDirection> | null {
-    return this.props.directions[this.lineId]
+    return this.props.directions[this.props.currentLine]
   }
 
   get stops() : Array<IStop> {
     if (this.directions == null) {
       return []
     }
-    let direction = this.directions.find(({ name }) => name == this.directionName)
+    let direction = this.directions.find(({ name }) => name == this.props.currentDirection)
     if (direction == null) {
       return []
     }
@@ -57,19 +47,17 @@ class Stops extends React.Component<IDirectionsProps> {
 
   render() {
     return (
-      <Skeleton active loading={this.directions == null}>
+      <Spin spinning={this.directions == null}>
         <ul className="ui-items">
-          <StopsList  stops={this.stops} 
-              directionName={this.directionName} 
-                     lineId={this.lineId} />
+          <StopsList stops={this.stops} {...this.props} />
         </ul>
-      </Skeleton>
+      </Spin>
     )
   }
 }
 
 
-function mapStateToProps({ schedules } : BusixState) : IDirectionsProps {
+function mapStateToProps({ schedules } : BusixState) : IStopsProps {
   let { directions } = schedules
   return { directions }
 }

@@ -1,0 +1,5 @@
+pl:
+  schedules:
+    title: 'Rozkład jazdy'
+    buses: 'Autobusy'
+    trams: 'Tramwaje'

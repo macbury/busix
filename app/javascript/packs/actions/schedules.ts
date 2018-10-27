@@ -6,7 +6,7 @@ const client = new GraphQLClient('/api/')
 
 const FETCH_LINES_QUERY = `
   query($cursor: String) {
-    lines(first: 50, after: $cursor) {
+    lines(first: 100, after: $cursor) {
       pageInfo {
         endCursor
         hasNextPage

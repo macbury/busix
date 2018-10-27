@@ -3,4 +3,4 @@ pl:
     header:
       find_path: 'Trasa'
       schedules: 'Rozkłady'
-      api: 'Api'
+      api_explorer: 'Api'

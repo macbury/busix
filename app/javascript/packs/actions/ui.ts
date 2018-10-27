@@ -12,3 +12,7 @@ export function setBreadcrump(breadcrumbs : Array<IBreadcrumpItem>) {
 export function clearBreadcrump() {
   return { type: UI.SET_BREADCRUMP, payload: [] }
 }
+
+export function setCurrentPage(page : string) {
+  return { type: UI.SET_PAGE, payload: page }
+}
