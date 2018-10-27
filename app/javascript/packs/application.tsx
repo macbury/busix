@@ -1,7 +1,4 @@
-require('~styles')
-
 import * as React from 'react'
-import * as ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { ConnectedRouter } from 'connected-react-router'
 import { Route, Switch } from 'react-router-dom'
@@ -14,10 +11,8 @@ import ApiExplorer from './pages/ApiExplorer'
 import Schedules from './pages/Schedules'
 import Directions from './pages/Directions'
 
-document.addEventListener('DOMContentLoaded', () => {
-  const root = document.querySelector('#root')
-
-  ReactDOM.render(
+export default function Application() {
+  return (
     <AppWithTranslations>
       <Provider store={store}>
         <ConnectedRouter history={history}>
@@ -42,6 +37,6 @@ document.addEventListener('DOMContentLoaded', () => {
           </Switch>
         </ConnectedRouter>
       </Provider>
-    </AppWithTranslations>, root
+    </AppWithTranslations>
   )
-})
+}

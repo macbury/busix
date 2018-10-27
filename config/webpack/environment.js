@@ -98,5 +98,5 @@ const webpackConfig = environment.toWebpackConfig()
 module.exports = {
   ...webpackConfig,
   target: 'web',
-  entry: resolve('app/javascript/packs/application.tsx')
+  entry: resolve('app/javascript/packs/boot.tsx')
 }

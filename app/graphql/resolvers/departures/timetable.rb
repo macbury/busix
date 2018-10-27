@@ -5,11 +5,11 @@ module Resolvers
 
       argument :from, String, required: true, description: 'Name of stop from which you want start'
       argument :to, String, required: true, description: 'Name of final stop of direction'
-      argument :at, Arguments::Time, required: true, description: 'Time of departure'
+      argument :at, Arguments::Time, required: false, description: 'Time of departure'
       argument :day, Enums::DepartureKind, required: false, description: 'For what day, ignored if at is added'
       argument :line, String, required: true, description: 'Name of line you want timetable'
 
-      def resolve(from:, to:, day: nil, line:)
+      def resolve(from:, to:, day: nil, line:, at: nil)
         at ||= Time.zone.now
         version = Version.for_date(at).first
         context[:at] = at
