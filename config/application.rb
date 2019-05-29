@@ -37,7 +37,6 @@ module Busix
     config.time_zone = 'Warsaw'
     config.autoload_paths << Rails.root.join('app', 'graphql')
     config.middleware.use BatchLoader::Middleware
-    config.skylight.environments += ['staging']
 
     config.i18n.default_locale = :pl
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]

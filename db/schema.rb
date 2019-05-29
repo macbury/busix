@@ -14,7 +14,6 @@ ActiveRecord::Schema.define(version: 18) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "postgis"
 
   create_table "departures", force: :cascade do |t|
     t.integer "time"
@@ -57,7 +56,6 @@ ActiveRecord::Schema.define(version: 18) do
   end
 
   create_table "stop_locations", force: :cascade do |t|
-    t.geography "location", limit: {:srid=>4326, :type=>"st_point", :geographic=>true}
     t.integer "kind"
     t.string "name"
     t.bigint "node_id"
@@ -74,9 +72,7 @@ ActiveRecord::Schema.define(version: 18) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "simple_name"
-    t.geography "location", limit: {:srid=>4326, :type=>"st_point", :geographic=>true}
     t.integer "version_id"
-    t.index ["location"], name: "index_stops_on_location", using: :gist
     t.index ["name"], name: "index_stops_on_name"
     t.index ["simple_name"], name: "index_stops_on_simple_name"
     t.index ["version_id"], name: "index_stops_on_version_id"

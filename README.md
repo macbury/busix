@@ -13,14 +13,18 @@ http://kraków.online/api/explorer
 ```graphql
 {
   departures(from: "Białucha", to: "Wzgórza Krzesławickie", at: "10 minutes from now"){
-    line {
-      name
-      kind
-    }
-    
-    time {
-      formatted
-      distance
+    edges {
+      node {
+        line {
+          name
+          kind
+        }
+
+        time {
+          formatted
+          distance
+        }
+      }
     }
   }
 }
@@ -31,108 +35,718 @@ http://kraków.online/api/explorer
 ```json
 {
   "data": {
-    "departures": [
-      {
-        "line": {
-          "name": "73",
-          "kind": "tram"
+    "departures": {
+      "edges": [
+        {
+          "node": {
+            "line": {
+              "name": "73",
+              "kind": "tram"
+            },
+            "time": {
+              "formatted": "09:28",
+              "distance": "10 minut from now"
+            }
+          }
         },
-        "time": {
-          "formatted": "22:36",
-          "distance": "17 minutes from now"
-        }
-      },
-      {
-        "line": {
-          "name": "5",
-          "kind": "tram"
+        {
+          "node": {
+            "line": {
+              "name": "73",
+              "kind": "tram"
+            },
+            "time": {
+              "formatted": "09:43",
+              "distance": "25 minut from now"
+            }
+          }
         },
-        "time": {
-          "formatted": "22:37",
-          "distance": "18 minutes from now"
-        }
-      },
-      {
-        "line": {
-          "name": "73",
-          "kind": "tram"
+        {
+          "node": {
+            "line": {
+              "name": "73",
+              "kind": "tram"
+            },
+            "time": {
+              "formatted": "09:58",
+              "distance": "40 minut from now"
+            }
+          }
         },
-        "time": {
-          "formatted": "22:51",
-          "distance": "32 minutes from now"
-        }
-      },
-      {
-        "line": {
-          "name": "5",
-          "kind": "tram"
+        {
+          "node": {
+            "line": {
+              "name": "73",
+              "kind": "tram"
+            },
+            "time": {
+              "formatted": "10:13",
+              "distance": "około godziny from now"
+            }
+          }
         },
-        "time": {
-          "formatted": "22:58",
-          "distance": "39 minutes from now"
-        }
-      },
-      {
-        "line": {
-          "name": "73",
-          "kind": "tram"
+        {
+          "node": {
+            "line": {
+              "name": "73",
+              "kind": "tram"
+            },
+            "time": {
+              "formatted": "10:28",
+              "distance": "około godziny from now"
+            }
+          }
         },
-        "time": {
-          "formatted": "23:06",
-          "distance": "about 1 hour from now"
-        }
-      },
-      {
-        "line": {
-          "name": "73",
-          "kind": "tram"
+        {
+          "node": {
+            "line": {
+              "name": "73",
+              "kind": "tram"
+            },
+            "time": {
+              "formatted": "10:43",
+              "distance": "około godziny from now"
+            }
+          }
         },
-        "time": {
-          "formatted": "23:20",
-          "distance": "about 1 hour from now"
-        }
-      },
-      {
-        "line": {
-          "name": "5",
-          "kind": "tram"
+        {
+          "node": {
+            "line": {
+              "name": "73",
+              "kind": "tram"
+            },
+            "time": {
+              "formatted": "10:58",
+              "distance": "około 2 godzin from now"
+            }
+          }
         },
-        "time": {
-          "formatted": "23:21",
-          "distance": "about 1 hour from now"
-        }
-      },
-      {
-        "line": {
-          "name": "73",
-          "kind": "tram"
+        {
+          "node": {
+            "line": {
+              "name": "73",
+              "kind": "tram"
+            },
+            "time": {
+              "formatted": "11:13",
+              "distance": "około 2 godzin from now"
+            }
+          }
         },
-        "time": {
-          "formatted": "23:31",
-          "distance": "about 1 hour from now"
-        }
-      },
-      {
-        "line": {
-          "name": "73",
-          "kind": "tram"
+        {
+          "node": {
+            "line": {
+              "name": "73",
+              "kind": "tram"
+            },
+            "time": {
+              "formatted": "11:28",
+              "distance": "około 2 godzin from now"
+            }
+          }
         },
-        "time": {
-          "formatted": "23:46",
-          "distance": "about 1 hour from now"
-        }
-      },
-      {
-        "line": {
-          "name": "73",
-          "kind": "tram"
+        {
+          "node": {
+            "line": {
+              "name": "73",
+              "kind": "tram"
+            },
+            "time": {
+              "formatted": "11:43",
+              "distance": "około 2 godzin from now"
+            }
+          }
         },
-        "time": {
-          "formatted": "23:59",
-          "distance": "about 2 hours from now"
+        {
+          "node": {
+            "line": {
+              "name": "73",
+              "kind": "tram"
+            },
+            "time": {
+              "formatted": "11:58",
+              "distance": "około 3 godzin from now"
+            }
+          }
+        },
+        {
+          "node": {
+            "line": {
+              "name": "73",
+              "kind": "tram"
+            },
+            "time": {
+              "formatted": "12:13",
+              "distance": "około 3 godzin from now"
+            }
+          }
+        },
+        {
+          "node": {
+            "line": {
+              "name": "73",
+              "kind": "tram"
+            },
+            "time": {
+              "formatted": "12:28",
+              "distance": "około 3 godzin from now"
+            }
+          }
+        },
+        {
+          "node": {
+            "line": {
+              "name": "73",
+              "kind": "tram"
+            },
+            "time": {
+              "formatted": "12:43",
+              "distance": "około 3 godzin from now"
+            }
+          }
+        },
+        {
+          "node": {
+            "line": {
+              "name": "73",
+              "kind": "tram"
+            },
+            "time": {
+              "formatted": "12:58",
+              "distance": "około 4 godzin from now"
+            }
+          }
+        },
+        {
+          "node": {
+            "line": {
+              "name": "73",
+              "kind": "tram"
+            },
+            "time": {
+              "formatted": "13:14",
+              "distance": "około 4 godzin from now"
+            }
+          }
+        },
+        {
+          "node": {
+            "line": {
+              "name": "73",
+              "kind": "tram"
+            },
+            "time": {
+              "formatted": "13:31",
+              "distance": "około 4 godzin from now"
+            }
+          }
+        },
+        {
+          "node": {
+            "line": {
+              "name": "73",
+              "kind": "tram"
+            },
+            "time": {
+              "formatted": "13:46",
+              "distance": "około 4 godzin from now"
+            }
+          }
+        },
+        {
+          "node": {
+            "line": {
+              "name": "73",
+              "kind": "tram"
+            },
+            "time": {
+              "formatted": "14:01",
+              "distance": "około 5 godzin from now"
+            }
+          }
+        },
+        {
+          "node": {
+            "line": {
+              "name": "73",
+              "kind": "tram"
+            },
+            "time": {
+              "formatted": "14:16",
+              "distance": "około 5 godzin from now"
+            }
+          }
+        },
+        {
+          "node": {
+            "line": {
+              "name": "73",
+              "kind": "tram"
+            },
+            "time": {
+              "formatted": "14:31",
+              "distance": "około 5 godzin from now"
+            }
+          }
+        },
+        {
+          "node": {
+            "line": {
+              "name": "73",
+              "kind": "tram"
+            },
+            "time": {
+              "formatted": "14:46",
+              "distance": "około 5 godzin from now"
+            }
+          }
+        },
+        {
+          "node": {
+            "line": {
+              "name": "73",
+              "kind": "tram"
+            },
+            "time": {
+              "formatted": "15:01",
+              "distance": "około 6 godzin from now"
+            }
+          }
+        },
+        {
+          "node": {
+            "line": {
+              "name": "73",
+              "kind": "tram"
+            },
+            "time": {
+              "formatted": "15:16",
+              "distance": "około 6 godzin from now"
+            }
+          }
+        },
+        {
+          "node": {
+            "line": {
+              "name": "73",
+              "kind": "tram"
+            },
+            "time": {
+              "formatted": "15:31",
+              "distance": "około 6 godzin from now"
+            }
+          }
+        },
+        {
+          "node": {
+            "line": {
+              "name": "73",
+              "kind": "tram"
+            },
+            "time": {
+              "formatted": "15:46",
+              "distance": "około 6 godzin from now"
+            }
+          }
+        },
+        {
+          "node": {
+            "line": {
+              "name": "73",
+              "kind": "tram"
+            },
+            "time": {
+              "formatted": "16:01",
+              "distance": "około 7 godzin from now"
+            }
+          }
+        },
+        {
+          "node": {
+            "line": {
+              "name": "73",
+              "kind": "tram"
+            },
+            "time": {
+              "formatted": "16:16",
+              "distance": "około 7 godzin from now"
+            }
+          }
+        },
+        {
+          "node": {
+            "line": {
+              "name": "73",
+              "kind": "tram"
+            },
+            "time": {
+              "formatted": "16:31",
+              "distance": "około 7 godzin from now"
+            }
+          }
+        },
+        {
+          "node": {
+            "line": {
+              "name": "73",
+              "kind": "tram"
+            },
+            "time": {
+              "formatted": "16:46",
+              "distance": "około 7 godzin from now"
+            }
+          }
+        },
+        {
+          "node": {
+            "line": {
+              "name": "73",
+              "kind": "tram"
+            },
+            "time": {
+              "formatted": "17:01",
+              "distance": "około 8 godzin from now"
+            }
+          }
+        },
+        {
+          "node": {
+            "line": {
+              "name": "73",
+              "kind": "tram"
+            },
+            "time": {
+              "formatted": "17:16",
+              "distance": "około 8 godzin from now"
+            }
+          }
+        },
+        {
+          "node": {
+            "line": {
+              "name": "73",
+              "kind": "tram"
+            },
+            "time": {
+              "formatted": "17:31",
+              "distance": "około 8 godzin from now"
+            }
+          }
+        },
+        {
+          "node": {
+            "line": {
+              "name": "73",
+              "kind": "tram"
+            },
+            "time": {
+              "formatted": "17:46",
+              "distance": "około 8 godzin from now"
+            }
+          }
+        },
+        {
+          "node": {
+            "line": {
+              "name": "73",
+              "kind": "tram"
+            },
+            "time": {
+              "formatted": "18:01",
+              "distance": "około 9 godzin from now"
+            }
+          }
+        },
+        {
+          "node": {
+            "line": {
+              "name": "73",
+              "kind": "tram"
+            },
+            "time": {
+              "formatted": "18:16",
+              "distance": "około 9 godzin from now"
+            }
+          }
+        },
+        {
+          "node": {
+            "line": {
+              "name": "73",
+              "kind": "tram"
+            },
+            "time": {
+              "formatted": "18:31",
+              "distance": "około 9 godzin from now"
+            }
+          }
+        },
+        {
+          "node": {
+            "line": {
+              "name": "73",
+              "kind": "tram"
+            },
+            "time": {
+              "formatted": "18:46",
+              "distance": "około 9 godzin from now"
+            }
+          }
+        },
+        {
+          "node": {
+            "line": {
+              "name": "73",
+              "kind": "tram"
+            },
+            "time": {
+              "formatted": "19:01",
+              "distance": "około 10 godzin from now"
+            }
+          }
+        },
+        {
+          "node": {
+            "line": {
+              "name": "73",
+              "kind": "tram"
+            },
+            "time": {
+              "formatted": "19:15",
+              "distance": "około 10 godzin from now"
+            }
+          }
+        },
+        {
+          "node": {
+            "line": {
+              "name": "73",
+              "kind": "tram"
+            },
+            "time": {
+              "formatted": "19:30",
+              "distance": "około 10 godzin from now"
+            }
+          }
+        },
+        {
+          "node": {
+            "line": {
+              "name": "73",
+              "kind": "tram"
+            },
+            "time": {
+              "formatted": "19:45",
+              "distance": "około 10 godzin from now"
+            }
+          }
+        },
+        {
+          "node": {
+            "line": {
+              "name": "73",
+              "kind": "tram"
+            },
+            "time": {
+              "formatted": "20:01",
+              "distance": "około 11 godzin from now"
+            }
+          }
+        },
+        {
+          "node": {
+            "line": {
+              "name": "73",
+              "kind": "tram"
+            },
+            "time": {
+              "formatted": "20:16",
+              "distance": "około 11 godzin from now"
+            }
+          }
+        },
+        {
+          "node": {
+            "line": {
+              "name": "73",
+              "kind": "tram"
+            },
+            "time": {
+              "formatted": "20:31",
+              "distance": "około 11 godzin from now"
+            }
+          }
+        },
+        {
+          "node": {
+            "line": {
+              "name": "73",
+              "kind": "tram"
+            },
+            "time": {
+              "formatted": "20:47",
+              "distance": "około 11 godzin from now"
+            }
+          }
+        },
+        {
+          "node": {
+            "line": {
+              "name": "73",
+              "kind": "tram"
+            },
+            "time": {
+              "formatted": "21:02",
+              "distance": "około 12 godzin from now"
+            }
+          }
+        },
+        {
+          "node": {
+            "line": {
+              "name": "73",
+              "kind": "tram"
+            },
+            "time": {
+              "formatted": "21:17",
+              "distance": "około 12 godzin from now"
+            }
+          }
+        },
+        {
+          "node": {
+            "line": {
+              "name": "73",
+              "kind": "tram"
+            },
+            "time": {
+              "formatted": "21:32",
+              "distance": "około 12 godzin from now"
+            }
+          }
+        },
+        {
+          "node": {
+            "line": {
+              "name": "73",
+              "kind": "tram"
+            },
+            "time": {
+              "formatted": "21:50",
+              "distance": "około 13 godzin from now"
+            }
+          }
+        },
+        {
+          "node": {
+            "line": {
+              "name": "73",
+              "kind": "tram"
+            },
+            "time": {
+              "formatted": "22:05",
+              "distance": "około 13 godzin from now"
+            }
+          }
+        },
+        {
+          "node": {
+            "line": {
+              "name": "73",
+              "kind": "tram"
+            },
+            "time": {
+              "formatted": "22:20",
+              "distance": "około 13 godzin from now"
+            }
+          }
+        },
+        {
+          "node": {
+            "line": {
+              "name": "73",
+              "kind": "tram"
+            },
+            "time": {
+              "formatted": "22:35",
+              "distance": "około 13 godzin from now"
+            }
+          }
+        },
+        {
+          "node": {
+            "line": {
+              "name": "73",
+              "kind": "tram"
+            },
+            "time": {
+              "formatted": "22:50",
+              "distance": "około 14 godzin from now"
+            }
+          }
+        },
+        {
+          "node": {
+            "line": {
+              "name": "73",
+              "kind": "tram"
+            },
+            "time": {
+              "formatted": "23:05",
+              "distance": "około 14 godzin from now"
+            }
+          }
+        },
+        {
+          "node": {
+            "line": {
+              "name": "73",
+              "kind": "tram"
+            },
+            "time": {
+              "formatted": "23:16",
+              "distance": "około 14 godzin from now"
+            }
+          }
+        },
+        {
+          "node": {
+            "line": {
+              "name": "73",
+              "kind": "tram"
+            },
+            "time": {
+              "formatted": "23:29",
+              "distance": "około 14 godzin from now"
+            }
+          }
+        },
+        {
+          "node": {
+            "line": {
+              "name": "73",
+              "kind": "tram"
+            },
+            "time": {
+              "formatted": "23:44",
+              "distance": "około 14 godzin from now"
+            }
+          }
+        },
+        {
+          "node": {
+            "line": {
+              "name": "73",
+              "kind": "tram"
+            },
+            "time": {
+              "formatted": "23:59",
+              "distance": "około 15 godzin from now"
+            }
+          }
         }
-      }
-    ]
+      ]
+    }
   }
 }
 ```

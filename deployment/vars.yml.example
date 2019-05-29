@@ -1,9 +1,0 @@
-redis_bind: 127.0.0.1
-postgresql_version: 10.4
-pg_password: 'admin1234'
-project: 'busix'
-stage: 'staging'
-api_token: 'xxxx'
-ssh_key_name: "busix.staging"
-swap_file_size_kb: 2000000
-swap_file_path: '/swapfile'

@@ -9,12 +9,6 @@ end
 Rails.application.routes.draw do
   Sidekiq::Throttled::Web.enhance_queues_tab!
   mount Sidekiq::Web => '/workers'
-  
-  get '/api/locales' => 'api/locales#show'
   post '/api' => 'api/graphql#execute', as: :api
-
-  get '/about' => redirect('https://github.com/macbury/busix')
-
-  root 'frontend#show'
-  match '*path' => 'frontend#show', via: [:get]
+  mount GraphiQL::Rails::Engine, at: "/", graphql_path: "/api"
 end

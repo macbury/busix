@@ -27,12 +27,6 @@ class Departure < ApplicationRecord
 
   scope :for_line_stop_ids, -> (line_stop_ids) { where('line_stop_id = ANY(ARRAY[?]::int[])', line_stop_ids) }
 
-  scope :nearby, -> (lat, lon, distance_in_meters) do
-    joins(:stop)
-      .where("ST_DWithin(stops.location, ST_GeographyFromText('SRID=4326;POINT(:lon :lat)'), :distance)", lon: lon, lat: lat, distance: distance_in_meters)
-      .order(Arel.sql("ST_Distance(stops.location, ST_GeographyFromText('SRID=4326;POINT(#{lon.to_f} #{lat.to_f})'))"))
-  end
-
   def self.day_for_time(time)
     if !Holidays.on(time, :pl).empty? || time.sunday?
       :holidays
