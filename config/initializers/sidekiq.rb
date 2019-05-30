@@ -1,12 +1,8 @@
-require 'sidekiq/throttled'
-Sidekiq::Throttled.setup!
-
 REDIS_URL = ENV.fetch('REDIS_URL')
 Sidekiq.default_worker_options = { backtrace: true, retry: 25, dead: false }
 
 Sidekiq.configure_server do |config|
   job_count = ENV.fetch('SIDEKIQ_CONCURRENCY', 50).to_i
-  config.options[:concurrency] = job_count
   config.redis = ConnectionPool.new(size: job_count + 5, timeout: 5) do 
     Redis.new(url: REDIS_URL)
   end

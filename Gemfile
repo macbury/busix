@@ -27,7 +27,6 @@ gem 'dry-validation'
 gem 'attr_encrypted'
 gem 'sidekiq'
 gem 'sidekiq-cron'
-gem 'sidekiq-throttled'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'listen'
 gem 'graphql'
@@ -36,9 +35,6 @@ gem 'graphiql-rails'
 gem 'chronic'
 gem 'holidays'
 gem 'shortest_path'
-gem 'rack-throttle'
-# Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
-# gem 'rack-cors'
 
 group :development, :test do
   gem 'rspec-rails'

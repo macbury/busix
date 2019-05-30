@@ -4,3 +4,9 @@ spec/
 log/
 .git
 .env
+node_modules/
+spec/
+vendor/
+.env
+.env.example
+.env.local
