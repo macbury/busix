@@ -1,0 +1,5 @@
+#!/bin/sh
+
+cd /app
+[ -e /app/tmp/pids/server.pid ] && rm /app/tmp/pids/server.pid
+exec bin/rails s

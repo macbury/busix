@@ -1,0 +1,4 @@
+#!/bin/sh
+
+cd /app
+exec bin/sidekiq -q versions -q directions -q lines --concurrency 1
