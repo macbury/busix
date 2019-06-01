@@ -2,4 +2,4 @@
 
 cd /app
 [ -e /app/tmp/pids/server.pid ] && rm /app/tmp/pids/server.pid
-exec bin/rails s
+exec bin/puma -b 0.0.0.0 -p 5000
