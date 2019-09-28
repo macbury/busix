@@ -16,7 +16,7 @@ RUN echo $TZ > /etc/timezone && \
       dpkg-reconfigure -f noninteractive tzdata && \
       apt-get clean
 
-RUN gem install bundler
+RUN gem install bundler:2.0.1
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
