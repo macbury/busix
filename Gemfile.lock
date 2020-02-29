@@ -201,9 +201,6 @@ GEM
       rack
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
-    rack-throttle (0.7.0)
-      bundler (>= 1.0.0)
-      rack (>= 1.0.0)
     rails (5.2.0)
       actioncable (= 5.2.0)
       actionmailer (= 5.2.0)
@@ -228,7 +225,7 @@ GEM
       method_source
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
-    rake (12.3.1)
+    rake (13.0.1)
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
@@ -334,7 +331,6 @@ DEPENDENCIES
   pry
   pry-rails
   puma (~> 3.11)
-  rack-throttle
   rails (~> 5.2.0)
   redis (~> 4.0)
   rspec-rails
