@@ -201,9 +201,6 @@ GEM
       rack
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
-    rack-throttle (0.7.0)
-      bundler (>= 1.0.0)
-      rack (>= 1.0.0)
     rails (5.2.0)
       actioncable (= 5.2.0)
       actionmailer (= 5.2.0)
@@ -288,7 +285,7 @@ GEM
     thread_safe (0.3.6)
     tilt (2.0.8)
     timecop (0.9.1)
-    tzinfo (1.2.5)
+    tzinfo (1.2.10)
       thread_safe (~> 0.1)
     uglifier (4.1.16)
       execjs (>= 0.3.0, < 3)
@@ -334,7 +331,6 @@ DEPENDENCIES
   pry
   pry-rails
   puma (~> 3.11)
-  rack-throttle
   rails (~> 5.2.0)
   redis (~> 4.0)
   rspec-rails
