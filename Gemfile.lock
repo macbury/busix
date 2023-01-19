@@ -64,7 +64,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.12.2)
-    concurrent-ruby (1.0.5)
+    concurrent-ruby (1.1.10)
     connection_pool (2.2.2)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
@@ -134,8 +134,8 @@ GEM
     fugit (1.1.6)
       et-orbi (~> 1.1, >= 1.1.6)
       raabro (~> 1.1)
-    globalid (0.4.1)
-      activesupport (>= 4.2.0)
+    globalid (1.0.1)
+      activesupport (>= 5.0)
     graphiql-rails (1.4.11)
       railties
       sprockets-rails
@@ -144,7 +144,7 @@ GEM
     holidays (6.4.0)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
-    i18n (1.0.1)
+    i18n (1.12.0)
       concurrent-ruby (~> 1.0)
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
@@ -176,7 +176,7 @@ GEM
     mimemagic (0.3.2)
     mini_mime (1.0.0)
     mini_portile2 (2.3.0)
-    minitest (5.11.3)
+    minitest (5.17.0)
     msgpack (1.2.4)
     multi_json (1.13.1)
     net-http-digest_auth (1.4.1)
@@ -201,9 +201,6 @@ GEM
       rack
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
-    rack-throttle (0.7.0)
-      bundler (>= 1.0.0)
-      rack (>= 1.0.0)
     rails (5.2.0)
       actioncable (= 5.2.0)
       actionmailer (= 5.2.0)
@@ -288,7 +285,7 @@ GEM
     thread_safe (0.3.6)
     tilt (2.0.8)
     timecop (0.9.1)
-    tzinfo (1.2.5)
+    tzinfo (1.2.10)
       thread_safe (~> 0.1)
     uglifier (4.1.16)
       execjs (>= 0.3.0, < 3)
@@ -334,7 +331,6 @@ DEPENDENCIES
   pry
   pry-rails
   puma (~> 3.11)
-  rack-throttle
   rails (~> 5.2.0)
   redis (~> 4.0)
   rspec-rails
